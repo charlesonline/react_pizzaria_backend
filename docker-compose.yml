@@ -1,0 +1,48 @@
+services:
+  pizzaria_backend:
+    build: .
+    container_name: pizzaria_backend
+    ports:
+      - "7005:3333"
+    volumes:
+      - ./:/app:delegated
+      - /app/node_modules
+    networks:
+      - pizzaria_appnet
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=pizzaria_db
+      - DB_PORT=5432
+      - DB_NAME=pizzaria
+      - DB_USER=user
+      - DB_PASSWORD=user123
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      pizzaria_db:
+        condition: service_healthy
+    command: yarn dev
+    # command: npm start
+
+  pizzaria_db:
+    image: postgres:15-alpine
+    container_name: pizzaria_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user123
+      POSTGRES_DB: pizzaria
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./config_docker/postgres_data:/var/lib/postgresql/data
+    networks:
+      - pizzaria_appnet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  pizzaria_appnet:
+    external: false

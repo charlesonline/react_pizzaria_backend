@@ -1,0 +1,14 @@
+# ignore ide files
+.vscode/
+.idea/
+# ignore database files
+/config_docker/postgres_data/*
+# ignore node modules
+/node_modules
+# ignore environment variables file
+/.env
+# Ignore yarn error log files
+yarn-error.log*
+
+# Ignore npm error log files
+npm-debug.log*
