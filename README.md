@@ -21,7 +21,7 @@ Sistema backend para gerenciamento de pizzaria.
 ### Clonar o repositório
 
 ```bash
-git clone <[url-do-repositorio](https://github.com/charlesonline/react_pizzaria_backend.git)>
+git clone https://github.com/charlesonline/react_pizzaria_backend.git
 cd pizzaria/backend
 ```
 
