@@ -11,6 +11,7 @@ services:
       - pizzaria_appnet
     environment:
       - NODE_ENV=development
+      - DATABASE_URL=postgresql://user:user123@pizzaria_db:5432/pizzaria?schema=public
       - DB_HOST=pizzaria_db
       - DB_PORT=5432
       - DB_NAME=pizzaria
