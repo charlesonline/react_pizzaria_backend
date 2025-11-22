@@ -6,9 +6,12 @@
 # ignore node modules
 /node_modules
 # ignore environment variables file
-/.env
+# /.env
 # Ignore yarn error log files
 yarn-error.log*
 
 # Ignore npm error log files
 npm-debug.log*
+/src/generated/prisma
+
+/src/generated/prisma
