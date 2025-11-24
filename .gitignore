@@ -1,6 +1,7 @@
 # ignore ide files
 .vscode/
 .idea/
+.github/
 # ignore database files
 /config_docker/postgres_data/*
 # ignore node modules
