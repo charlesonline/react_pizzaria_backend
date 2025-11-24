@@ -11,9 +11,9 @@ interface ProductRequest {
 class CreateProductService {
     async execute({ name, price, description, banner, category_id }: ProductRequest) {
 
-        // if (!name || !price || !categoryId) {
-        //     throw new Error("name, price and category are required");
-        // }
+        if (!name || !price || !category_id) {
+            throw new Error("name, price and category are required");
+        }
 
         const productAlreadyExists = await prismaClient.product.findFirst({ where: { name } });
 
