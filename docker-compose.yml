@@ -10,6 +10,10 @@ services:
     networks:
       pizzaria_appnet:
         ipv4_address: 172.20.0.3
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+      - 8.8.4.4
     extra_hosts:
       - "pizzaws.dev:172.20.0.3"
     environment:
